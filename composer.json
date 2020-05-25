@@ -21,5 +21,6 @@
 			"homepage" : "https://github.com/aln-1",
 			"role" : "Developer"
 		}
-	]
+	],
+	"bin": ["bin/speedtest"]
 }

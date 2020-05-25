@@ -6,10 +6,16 @@ Library and command line interface for testing internet bandwidth using speedtes
 
 speedtest-php works with php >= 7.0 
 
+## Installation
+
+```bash
+composer install
+```
+
 ## CLI Usage
 
 ```bash
-$ php speedtest.php -h
+$ ./bin/speedtest -h
 
 usage: speedtest [-h] [--no-download] [--no-upload] [--single] [--bytes]
                  [--share] [--simple] [--json] [--list] [--server=SERVER]
@@ -74,7 +80,7 @@ Aln\Speedtest\Result Object
 
 Units:
 * latency = ms
-* download/upload = bits/s
+* download / upload = bits/s
 * bytesReceived / bytesSent = bytes
 
 ### With progress callback
