@@ -1,0 +1,25 @@
+{
+	"keywords" : [
+		"speedtest bandwidth"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Aln\\Speedtest\\" : "src"
+		}
+	},
+	"name" : "aln/speedtest-php",
+	"description" : "Library and command line interface for testing internet bandwidth using speedtest.net",
+	"require" : {
+		"php" : ">=7.0"
+	},
+	"homepage" : "https://github.com/aln-1/speedtest-php",
+	"license" : "Apache-2.0",
+	"minimum-stability" : "stable",
+	"authors" : [{
+			"name" : "Alon Noy",
+			"email" : "alon@noy.cc",
+			"homepage" : "https://github.com/aln-1",
+			"role" : "Developer"
+		}
+	]
+}
