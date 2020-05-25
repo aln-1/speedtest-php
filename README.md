@@ -8,13 +8,35 @@ speedtest-php works with php >= 7.0
 
 ## Installation
 
+### Standalone package
+
+Download and install with
+
 ```bash
 composer install
 ```
 
-## CLI Usage
+then run
 
 ```bash
+./bin/speedtest
+```
+
+### Project dependency
+
+```bash
+composer require aln/speedtest-php
+```
+
+then run
+
+```bash
+./vendor/bin/speedtest
+```
+
+## CLI Usage
+
+```
 $ ./bin/speedtest -h
 
 usage: speedtest [-h] [--no-download] [--no-upload] [--single] [--bytes]
