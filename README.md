@@ -2,6 +2,12 @@
 
 Library and command line interface for testing internet bandwidth using speedtest.net.
 
+[![Latest Stable Version](https://poser.pugx.org/aln/speedtest-php/v)](//packagist.org/packages/aln/speedtest-php)
+[![Total Downloads](https://poser.pugx.org/aln/speedtest-php/downloads)](//packagist.org/packages/aln/speedtest-php)
+[![Latest Unstable Version](https://poser.pugx.org/aln/speedtest-php/v/unstable)](//packagist.org/packages/aln/speedtest-php)
+[![License](https://poser.pugx.org/aln/speedtest-php/license)](//packagist.org/packages/aln/speedtest-php)
+[![composer.lock](https://poser.pugx.org/aln/speedtest-php/composerlock)](//packagist.org/packages/aln/speedtest-php)
+
 ## Versions
 
 speedtest-php works with php >= 7.0 
