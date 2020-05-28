@@ -7,14 +7,11 @@ Library and command line interface for testing internet bandwidth using speedtes
 [![Latest Unstable Version](https://poser.pugx.org/aln/speedtest-php/v/unstable)](//packagist.org/packages/aln/speedtest-php)
 [![License](https://poser.pugx.org/aln/speedtest-php/license)](//packagist.org/packages/aln/speedtest-php)
 [![composer.lock](https://poser.pugx.org/aln/speedtest-php/composerlock)](//packagist.org/packages/aln/speedtest-php)
-
-## Versions
-
-speedtest-php works with php >= 7.0 
+[![php version](https://img.shields.io/badge/php-%3E%3D%207.0-blue)](//packagist.org/packages/aln/speedtest-php)
 
 ## Installation
 
-### Standalone package
+### As standalone package
 
 Download and install with
 
@@ -27,8 +24,11 @@ then run
 ```bash
 ./bin/speedtest
 ```
+![speedtest-php demo](resources/speedtest-php.gif)
 
-### Project dependency
+*(IP adress was hidden for the demo)*
+
+### As project dependency
 
 ```bash
 composer require aln/speedtest-php
@@ -132,6 +132,9 @@ Aln\Speedtest\Result Object
     [bytesReceived:protected] => 0
     [bytesSent:protected] => 0
 )
+
+// More dump was here ...
+
 Aln\Speedtest\Result Object
 (
     [latency:protected] => 4.40
@@ -141,7 +144,7 @@ Aln\Speedtest\Result Object
     [bytesSent:protected] => 0
 )
 ```
-showing only first and last callback results from the download method.
+*(showing only first and last callback results from the download method)*
 
 ## Credits
 This project is ported from the [Python version](https://github.com/sivel/speedtest-cli) by Matt Martz
