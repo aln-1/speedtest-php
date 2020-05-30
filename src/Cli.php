@@ -298,19 +298,13 @@ optional arguments:
         }
 
         // try git
-        $path = realpath(dirname(__FILE__) . '/../') . "/.git/refs/heads/master";
-        if(is_readable($path)) {
-            $master = file_get_contents($path);
-            $files = glob(realpath(dirname(__FILE__) . '/../') . '/.git/refs/tags/*');
-            foreach(array_reverse($files) as $file) {
-                $tag = file_get_contents($file);
-                if($master == $tag) {
-                    echo basename($file) . "\n";
-                    return;
-                }
+        $ver = shell_exec('git describe --always');
+        if($ver) {
+            $ver = trim($ver);
+            if($ver && substr($ver, 0, 1) == 'v') {
+                echo "$ver\n";
+                return;
             }
-            echo "dev-master\n";
-            return;
         }
         
         echo "unknown\n";
