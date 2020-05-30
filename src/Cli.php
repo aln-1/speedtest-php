@@ -177,7 +177,7 @@ class Cli
         }
         
         if(array_key_exists('version', $options)) {
-            echo Speedtest::VERSION . "\n";
+            $this->version();
             exit();
         }
         
@@ -282,5 +282,37 @@ optional arguments:
                 ' (' . $server['name'] . ', ' . $server['country'] . ') [' .
                 number_format($server['d'], 2) . " Km]\n";
         }
+    }
+    
+    protected function version() {
+        // try composer
+        $path = realpath(dirname(__FILE__) . '/../../../') . "/composer/installed.json";
+        if(is_readable($path)) {
+            $packages = json_decode(file_get_contents($path));
+            foreach ($packages as $package) {
+                if($package->name == "aln/speedtest-php") {
+                    echo $package->version . "\n";
+                    return;
+                }
+            }
+        }
+
+        // try git
+        $path = realpath(dirname(__FILE__) . '/../') . "/.git/refs/heads/master";
+        if(is_readable($path)) {
+            $master = file_get_contents($path);
+            $files = glob(realpath(dirname(__FILE__) . '/../') . '/.git/refs/tags/*');
+            foreach(array_reverse($files) as $file) {
+                $tag = file_get_contents($file);
+                if($master == $tag) {
+                    echo basename($file) . "\n";
+                    return;
+                }
+            }
+            echo "dev-master\n";
+            return;
+        }
+        
+        echo "unknown\n";
     }
 }

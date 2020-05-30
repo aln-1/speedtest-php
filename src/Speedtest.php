@@ -25,8 +25,6 @@ namespace Aln\Speedtest;
 
 class Speedtest
 {
-    const VERSION = "1.0.2";
-    
     /**
      * 
      * @var Config
@@ -148,34 +146,27 @@ class Speedtest
     public function getServers() {
         $list = [];
         
-        $urls = [
-            'https://www.speedtest.net/speedtest-servers-static.php',
-            'https://c.speedtest.net/speedtest-servers-static.php',
-            'https://www.speedtest.net/speedtest-servers.php',
-            'https://c.speedtest.net/speedtest-servers.php',
-        ];
+        $url = 'https://c.speedtest.net/speedtest-servers-static.php';
         
-        foreach ($urls as $url) {
-            try {
-                $xml = new \SimpleXMLElement($url, null, true);
-                foreach($xml->servers->server as $server) {
-                    $server = $this->xmlAttributesToArray($server);
-                    $id = (int)$server['id'];
-                    
-                    if((!$this->config->getUseServers() || in_array($id, $this->config->getUseServers()))
-                        && !in_array($id, $this->config->getIgnoreServers())) {
-                        $server['d'] = $this->haversine(
-                            (float)$this->config->getClient()['lat'],
-                            (float)$this->config->getClient()['lon'],
-                            (float)$server['lat'],
-                            (float)$server['lon']
-                            );
-                        $list[(int)$server['id']] = $server;
-                    }
+        try {
+            $xml = new \SimpleXMLElement($url, null, true);
+            foreach($xml->servers->server as $server) {
+                $server = $this->xmlAttributesToArray($server);
+                $id = (int)$server['id'];
+                
+                if((!$this->config->getUseServers() || in_array($id, $this->config->getUseServers()))
+                    && !in_array($id, $this->config->getIgnoreServers())) {
+                    $server['d'] = $this->haversine(
+                        (float)$this->config->getClient()['lat'],
+                        (float)$this->config->getClient()['lon'],
+                        (float)$server['lat'],
+                        (float)$server['lon']
+                        );
+                    $list[(int)$server['id']] = $server;
                 }
-            } catch (\Exception $e) {
-                throw new SpeedtestException("Can not retrieve server list");
             }
+        } catch (\Exception $e) {
+            throw new SpeedtestException("Can not retrieve server list");
         }
         
         if(!$list) {
