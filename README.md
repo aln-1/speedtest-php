@@ -2,6 +2,8 @@
 
 Library and command line interface for testing internet bandwidth using speedtest.net.
 
+The goal of this project is to run server-side speedtest, from cli or web interface.
+
 [![Latest Stable Version](https://poser.pugx.org/aln/speedtest-php/v)](//packagist.org/packages/aln/speedtest-php)
 [![Total Downloads](https://poser.pugx.org/aln/speedtest-php/downloads)](//packagist.org/packages/aln/speedtest-php)
 [![Latest Unstable Version](https://poser.pugx.org/aln/speedtest-php/v/unstable)](//packagist.org/packages/aln/speedtest-php)
@@ -145,6 +147,11 @@ Aln\Speedtest\Result Object
 )
 ```
 *(showing only first and last callback results from the download method)*
+
+## Web demo
+A one page demo is available at `resources/demo.php`
+
+![speedtest-php demo 2](resources/speedtest-php-2.gif)
 
 ## Credits
 This project is ported from the [Python version](https://github.com/sivel/speedtest-cli) by Matt Martz
