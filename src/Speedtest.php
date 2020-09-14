@@ -267,7 +267,7 @@ class Speedtest
         }
         
         $mh = curl_multi_init();
-        $maxConnections = $this->config->isSingle() ? 1 : $threads ?: $this->config->getThreads()['download'];
+        $maxConnections = $this->config->isSingle() ? 1 : ($threads ?: $this->config->getThreads()['download']);
         curl_multi_setopt($mh, CURLMOPT_MAX_TOTAL_CONNECTIONS, $maxConnections);
         $conn = [];
         foreach ($urls as $url) {
@@ -317,7 +317,7 @@ class Speedtest
         }
         
         $mh = curl_multi_init();
-        $maxConnections = $this->config->isSingle() ? 1 : $threads ?: $this->config->getThreads()['upload'];
+        $maxConnections = $this->config->isSingle() ? 1 : ($threads ?: $this->config->getThreads()['upload']);
         curl_multi_setopt($mh, CURLMOPT_MAX_TOTAL_CONNECTIONS, $maxConnections);
         $conn = [];
         $dataCount = 0;
